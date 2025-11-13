@@ -24,7 +24,7 @@ esphome:
     version: "0.9.0"
 
 logger:
-  level: WARN
+  level: DEBUG
 
 api:
 #  encryption:
@@ -72,5 +72,6 @@ modbus_controller:
     update_interval: ${update_interval}
     command_throttle: 60ms
     offline_skip_updates: 3
+
 
 
