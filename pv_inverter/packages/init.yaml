@@ -12,49 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-substitutions:
-  update_interval: 5s
-
-esphome:
-  name: "${name}"
-  friendly_name: "${friendly_name}"
-  comment: "${device_description}"
-  project:
-    name: "lewa-reka.deye-inverter"
-    version: "0.9.0"
-
-logger:
-  level: DEBUG
-
-api:
-#  encryption:
-#    key: ${api_key}
-#  on_client_disconnected:
-#    - delay: ${safe_mode_delay}
-#    - if:
-#        condition:
-#          not: api.connected
-#        then:
-#          - logger.log: "Lost connection to HomeAssistant API - Activating safe mode"
-#          - script.execute: set_safe_modbus_registers
-#
-#  on_client_connected:
-#    - logger.log: "Connection to HomeAssistant API restored"
-
-ota:
-  - platform: esphome
-    password: ""
-
-wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_password}
-
-  ap:
-    ssid: "${friendly_name} Fallback Hotspot"
-    password: ${fallback_password}
-
-captive_portal:
-
 uart:
   id: modbus_uart
   baud_rate: ${baud_rate}
@@ -72,6 +29,7 @@ modbus_controller:
     update_interval: ${update_interval}
     command_throttle: 60ms
     offline_skip_updates: 3
+
 
 
 
